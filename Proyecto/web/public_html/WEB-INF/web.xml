@@ -1,0 +1,29 @@
+<?xml version = '1.0' encoding = 'windows-1252'?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+         version="2.5" xmlns="http://java.sun.com/xml/ns/javaee">
+  <servlet>
+    <servlet-name>LoginServlet</servlet-name>
+    <servlet-class>servlet.LoginServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>CompraServlet</servlet-name>
+    <servlet-class>servlet.CompraServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>ConvertirServlet</servlet-name>
+    <servlet-class>servlet.ConvertirServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>LoginServlet</servlet-name>
+    <url-pattern>/loginservlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>CompraServlet</servlet-name>
+    <url-pattern>/compraservlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>ConvertirServlet</servlet-name>
+    <url-pattern>/convertirservlet</url-pattern>
+  </servlet-mapping>
+</web-app>

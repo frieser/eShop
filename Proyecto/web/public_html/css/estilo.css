@@ -1,0 +1,127 @@
+body{
+position: relative;
+margin:10px;
+}
+
+#carrito{
+	position: relative;
+	margin: 0 auto;
+	margin-top: 40px;
+	 text-align: center;
+
+}
+#carrito table input{
+  border:none;
+}
+
+ #carrito tr:nth-child(even) td, #carrito tr:nth-child(odd) td {
+ background: #FFF; 
+}  
+
+#carrito #controles{
+ width: 640px; 
+ border-collapse: 
+ collapse; border-spacing: 0; 
+ text-align: center;
+margin: 0 auto;
+margin-top: 40px;
+text-align: right;
+}
+
+table { 
+ color: #333;
+ font-family: Helvetica, Arial, sans-serif;
+ width: 640px; 
+ border-collapse: 
+ collapse; border-spacing: 0; 
+ text-align: center;
+margin: 0 auto;
+
+}
+
+h1{
+	 color: #333;
+ 	font-family: Helvetica, Arial, sans-serif;
+}
+ 
+td, th { 
+ border: 1px solid transparent; 
+ height: 30px; 
+ transition: all 0.3s;  
+}
+ 
+th {
+ background: #DFDFDF;  
+ font-weight: bold;
+}
+ 
+td {
+ background: #FAFAFA;
+ text-align: center;
+}
+
+
+tr:nth-child(even) td {
+ background: #F1F1F1; 
+}   
+
+
+tr:nth-child(odd) td {
+ background: #FEFEFE; 
+}  
+ 
+tr td:hover {
+ background: #666; color: #FFF; 
+}
+
+a{
+	text-decoration: none;
+}
+
+ h1 {
+font-size:14px;
+font-weight:bold;
+margin-bottom:8px;
+}
+d p{
+font-size:11px;
+color:#666666;
+margin-bottom:20px;
+border-bottom:solid 1px #b7ddf2;
+padding-bottom:10px;
+}
+label{
+display:block;
+font-weight:bold;
+text-align:right;
+width:140px;
+float:left;
+}
+ input{
+font-size:12px;
+padding:4px 2px;
+border:solid 1px #aacfe4;
+margin:2px;
+text-align: right;
+}
+ button{
+clear:both;
+margin-left:150px;
+width:125px;
+height:31px;
+background:#666666 url(img/button.png) no-repeat;
+text-align:center;
+line-height:31px;
+color:#FFFFFF;
+font-size:11px;
+font-weight:bold;
+}
+
+#botones{
+	text-align: center;
+
+}
+
+.hidden {
+  display:none;
+}
