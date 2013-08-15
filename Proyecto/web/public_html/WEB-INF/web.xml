@@ -14,6 +14,10 @@
     <servlet-name>ConvertirServlet</servlet-name>
     <servlet-class>servlet.ConvertirServlet</servlet-class>
   </servlet>
+  <servlet>
+    <servlet-name>ConfirmarServlet</servlet-name>
+    <servlet-class>servlet.ConfirmarServlet</servlet-class>
+  </servlet>
   <servlet-mapping>
     <servlet-name>LoginServlet</servlet-name>
     <url-pattern>/loginservlet</url-pattern>
@@ -25,5 +29,9 @@
   <servlet-mapping>
     <servlet-name>ConvertirServlet</servlet-name>
     <url-pattern>/convertirservlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>ConfirmarServlet</servlet-name>
+    <url-pattern>/confirmarservlet</url-pattern>
   </servlet-mapping>
 </web-app>

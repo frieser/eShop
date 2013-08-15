@@ -17,4 +17,6 @@ public interface ArticuloEJB {
     void removeArticulo(Articulo articulo);
 
     List<Articulo> getArticuloFindAll();
+    
+    Articulo getArticuloFindByReferencia(String referencia);
 }

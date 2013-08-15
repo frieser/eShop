@@ -10,7 +10,8 @@ import javax.persistence.NamedQuery;
 
 @Entity
 @NamedQueries({
-  @NamedQuery(name = "Articulo.findAll", query = "select o from Articulo o")
+  @NamedQuery(name = "Articulo.findAll", query = "select o from Articulo o"),
+  @NamedQuery(name = "Articulo.findByReferencia", query = "select o from Articulo o WHERE o.referencia=:referencia")
 })
 public class Articulo implements Serializable {
     @Column(length = 30)

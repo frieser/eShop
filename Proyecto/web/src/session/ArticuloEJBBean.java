@@ -50,4 +50,8 @@ public class ArticuloEJBBean implements ArticuloEJB {
     public List<Articulo> getArticuloFindAll() {
         return em.createNamedQuery("Articulo.findAll").getResultList();
     }
+    
+    public Articulo getArticuloFindByReferencia(String referencia) {
+      return (Articulo)em.createNamedQuery("Articulo.findByReferencia").setParameter("referencia", referencia).getSingleResult();
+    }
 }

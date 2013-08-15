@@ -35,8 +35,8 @@
     <tbody>
     <%
 		      int i=0;
-          int precio = 0;
-          int precio2 = 0;
+          long precio = 0;
+          long precio2 = 0;
 					for(i = 0;i<articulos.size();i++){
     %>
       <tr>
@@ -58,8 +58,8 @@
           
       
          
-         <td colspan="3"> <%//precio = ((Articulo)articulos.get(i)).getPrecio()*((Articulo)articulos.get(i)).getUnidades(); %><%=precio%></td>
-         <%//precio2 += ((Articulo)articulos.get(i)).getPrecio()*((Articulo)articulos.get(i)).getUnidades(); %>
+         <td colspan="3"> <%precio = ((Articulo)articulos.get(i)).getPrecio()*((Articulo)articulos.get(i)).getUnidades(); %><%=precio%></td>
+         <%precio2 += ((Articulo)articulos.get(i)).getPrecio()*((Articulo)articulos.get(i)).getUnidades(); %>
       </tr>
       
           <%
