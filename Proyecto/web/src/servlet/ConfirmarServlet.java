@@ -3,6 +3,8 @@ package servlet;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+import java.net.URL;
+
 import java.sql.Timestamp;
 
 import java.util.ArrayList;
@@ -28,9 +30,15 @@ import model.Pedido;
 import session.CarritoEJB;
 import model.Usuario;
 
+import org.apache.log4j.Level;
+
 import session.ArticuloEJB;
 import session.PedidoEJB;
 import session.UsuarioEJB;
+
+import org.apache.log4j.Logger;
+import org.apache.log4j.PropertyConfigurator;
+import org.apache.log4j.helpers.Loader;
 
 public class ConfirmarServlet extends HttpServlet {
     private static final String CONTENT_TYPE = "text/html; charset=windows-1252";
@@ -69,31 +77,32 @@ public class ConfirmarServlet extends HttpServlet {
       Context ctx;
         try {
           ctx = new InitialContext();
+          URL url = Loader.getResource("log4j.properties");
+          PropertyConfigurator.configure(url);
           CarritoEJB carritoSession = (CarritoEJB)ctx.lookup("Proyecto-web-CarritoEJB#session.CarritoEJB");
           carritoSession.persistCarrito(carrito);
-          //cbdh.insertarCarrito(carrito);
+
         } catch (NamingException e) {
+          Logger.getLogger(CompraServlet.class.getName()).log(Level.FATAL,"Operacion solicitada no realizada"+e.getMessage());
           e.printStackTrace();
-          System.out.println(e.getMessage());
         }
       
-      System.out.println("SERVLET CONFIRMAR");
+      Logger.getLogger(CompraServlet.class.getName()).log(Level.INFO,"SERVLET confirmar");
       
       articulos =  (ArrayList<Articulo>) sesion.getAttribute("articulos");
       
       if(articulos==null){
-        System.out.println("Esta vacio");
+        Logger.getLogger(CompraServlet.class.getName()).log(Level.INFO,"Esta vacio");
       }
       
       for(i = 0;i<articulos.size();i++){
-        System.out.println("ASDASDASDASDASHDASIDKDHASLÑDJKH");
         System.out.println(articulos.get(i).getReferencia());
         System.out.println(articulos.get(i).getDescripcion());
         System.out.println(articulos.get(i).getPrecio());
         System.out.println(articulos.get(i).getUnidades());
             try {
                 ctx = new InitialContext();
-              PedidoEJB pedidoSession = (PedidoEJB)ctx.lookup("Proyecto-web-PedidoEJBB#session.PedidoEJB");
+              PedidoEJB pedidoSession = (PedidoEJB)ctx.lookup("Proyecto-web-PedidoEJB#session.PedidoEJB");
               ArticuloEJB articuloSession = (ArticuloEJB)ctx.lookup("Proyecto-web-ArticuloEJB#session.ArticuloEJB");
                 
                 Pedido pedido=new Pedido();
@@ -101,13 +110,11 @@ public class ConfirmarServlet extends HttpServlet {
                 pedido.setReferencia(articulos.get(i).getReferencia());
                 pedido.setNumUnidades(articulos.get(i).getUnidades());
                 pedidoSession.persistPedido(pedido);
-              //pdbh.insertarPedido(numcarrito, (articulos.get(i)).getReferencia(), Integer.parseInt((articulos.get(i)).getUnidades()));
                 
                 Articulo articulo;
                 articulo=articuloSession.getArticuloFindByReferencia(articulos.get(i).getReferencia());
                 articulo.setUnidades(articulo.getUnidades()-articulos.get(i).getUnidades());
                 articuloSession.mergeArticulo(articulo);
-              //adbh.modificarStockArticulo(((Articulo)articulos.get(i)).getReferencia(),Integer.parseInt(((Articulo)articulos.get(i)).getUnidades()));
               
             } catch (NamingException e) {
               e.printStackTrace();
@@ -117,6 +124,7 @@ public class ConfirmarServlet extends HttpServlet {
        
       }
       request.setAttribute("articulos", "");
+      Logger.getLogger(CompraServlet.class.getName()).log(Level.INFO,"Accedemos a compraservlet");
       RequestDispatcher rd = getServletContext().getRequestDispatcher("/compraservlet");
       rd.forward(request, response);
     }

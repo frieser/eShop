@@ -1,5 +1,7 @@
 package business;
 
+import java.net.URL;
+
 import java.util.List;
 
 import javax.naming.Context;
@@ -9,6 +11,13 @@ import javax.naming.InitialContext;
 import model.Usuario;
 
 import session.UsuarioEJB;
+
+import org.apache.log4j.Level;
+import org.apache.log4j.Logger;
+import org.apache.log4j.PropertyConfigurator;
+import org.apache.log4j.helpers.Loader;
+
+import servlet.CompraServlet;
 
 public class Autentificacion {
     public Autentificacion() {
@@ -22,6 +31,8 @@ public class Autentificacion {
         long id;
         
         try {
+            URL url = Loader.getResource("log4j.properties");
+            PropertyConfigurator.configure(url);
             Context ctx = new InitialContext();
             UsuarioEJB local = (UsuarioEJB)ctx.lookup("Proyecto-web-UsuarioEJB#session.UsuarioEJB");
             usuario=local.getUsuarioFindByLogin(nombre);
@@ -31,12 +42,13 @@ public class Autentificacion {
         }        
         
         if (usuario!=null) {            
-          System.out.println("USUSUARIOOOOO");
+          Logger.getLogger(CompraServlet.class.getName()).log(Level.INFO,"Leemos usuario de autenticacion");
           System.out.println(usuario.getCodUsuario());
           System.out.println(usuario.getLogin());
           System.out.println(usuario.getPass());
           if(clave.equals(usuario.getPass())){
             id=usuario.getCodUsuario();
+            Logger.getLogger(CompraServlet.class.getName()).log(Level.INFO,"Coincide usuario y pass");
           }else {
             id=-1;
           }

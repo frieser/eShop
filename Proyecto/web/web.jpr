@@ -508,6 +508,30 @@
                      <hash n="filters">
                         <list n="rules">
                            <hash>
+                              <value n="pattern" v="session/ArticuloEJB.class"/>
+                              <value n="type" v="1"/>
+                           </hash>
+                           <hash>
+                              <value n="pattern" v="session/ArticuloEJBBean.class"/>
+                              <value n="type" v="1"/>
+                           </hash>
+                           <hash>
+                              <value n="pattern" v="session/CarritoEJB.class"/>
+                              <value n="type" v="1"/>
+                           </hash>
+                           <hash>
+                              <value n="pattern" v="session/CarritoEJBBean.class"/>
+                              <value n="type" v="1"/>
+                           </hash>
+                           <hash>
+                              <value n="pattern" v="session/PedidoEJB.class"/>
+                              <value n="type" v="1"/>
+                           </hash>
+                           <hash>
+                              <value n="pattern" v="session/PedidoEJBBean.class"/>
+                              <value n="type" v="1"/>
+                           </hash>
+                           <hash>
                               <value n="pattern" v="model/Usuario.class"/>
                            </hash>
                            <hash>
@@ -706,6 +730,7 @@
          <hash n="Default">
             <value n="custom" v="false"/>
             <value n="name" v="Default"/>
+            <value n="remoteDebuggingProfiling" v="true"/>
          </hash>
       </hash>
       <list n="runConfigurationList">
@@ -738,7 +763,37 @@
             <value n="id" v="EJB 3.0"/>
             <value n="isJDK" v="false"/>
          </hash>
+         <hash>
+            <value n="id" v="Log4j.jar"/>
+            <value n="isJDK" v="false"/>
+         </hash>
+         <hash>
+            <value n="id" v="Wllog4j.jar"/>
+            <value n="isJDK" v="false"/>
+         </hash>
       </list>
+      <hash n="internalDefinitions">
+         <list n="libraryDefinitions">
+            <hash>
+               <list n="classPath">
+                  <url path="public_html/WEB-INF/lib/log4j.jar" jar-entry=""/>
+               </list>
+               <value n="deployedByDefault" v="true"/>
+               <value n="description" v="Log4j.jar"/>
+               <value n="id" v="Log4j.jar"/>
+               <value n="locked" v="true"/>
+            </hash>
+            <hash>
+               <list n="classPath">
+                  <url path="public_html/WEB-INF/lib/wllog4j.jar" jar-entry=""/>
+               </list>
+               <value n="deployedByDefault" v="true"/>
+               <value n="description" v="Wllog4j.jar"/>
+               <value n="id" v="Wllog4j.jar"/>
+               <value n="locked" v="true"/>
+            </hash>
+         </list>
+      </hash>
       <list n="libraryReferences">
          <hash>
             <value n="id" v="JSP Runtime"/>
@@ -762,6 +817,14 @@
          </hash>
          <hash>
             <value n="id" v="EJB 3.0"/>
+            <value n="isJDK" v="false"/>
+         </hash>
+         <hash>
+            <value n="id" v="Log4j.jar"/>
+            <value n="isJDK" v="false"/>
+         </hash>
+         <hash>
+            <value n="id" v="Wllog4j.jar"/>
             <value n="isJDK" v="false"/>
          </hash>
       </list>

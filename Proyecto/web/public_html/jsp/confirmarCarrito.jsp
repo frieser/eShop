@@ -82,7 +82,7 @@
     <br/>
     <br/>
     <div align="center">
-      <form id="botones" method="POST" action='confirmaservlet'>
+      <form id="botones" method="POST" action='/public_html/confirmarservlet'>
         
         <input type="submit"  align="left" id="confirmar" value="Confirmar pedido" />
         <input type="reset" align="right" id="cancelar" value="Cancelar pedido""/> 
